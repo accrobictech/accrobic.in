@@ -6,4 +6,9 @@
     <priority>1.0</priority>
   </url>
 
+   <url>
+    <loc>https://in.pinterest.com/accrobictech/</loc>
+    <priority>1.0</priority>
+  </url>
+
 </urlset>
