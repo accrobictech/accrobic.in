@@ -5,22 +5,7 @@
     <loc>https://www.accrobictech.in/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://instagram.com/accrobictech.in/</loc>
-    <priority>2.0</priority>
-  </url>
-  <url>
-    <loc>https://pinterest.com/accrobictech/</loc>
-    <priority>3.0</priority>
-  </url>
-  <url>
-    <loc>https://www.linkedin.com/in/accrobictech-solutions-b8b7983b8/</loc>
-    <priority>4.0</priority>
-  </url>
-  <url>
-    <loc>https://www.facebook.com/profile.php?id=61596257777626</loc>
-    <priority>5.0</priority>
-  </url>
+  
 
 
 </urlset>
