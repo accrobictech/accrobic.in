@@ -148,6 +148,20 @@ a {
     gap: 10px
 }
 
+.social_med
+{
+    /* border:.1rem solid white; */
+    margin-top:1.5rem;
+    display:flex;
+    gap:1rem;
+}
+
+.fivon i
+{
+    font-size:1.5rem;
+    
+}
+
 .pulse {
     width: 7px;
     height: 7px;
