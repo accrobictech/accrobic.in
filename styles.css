@@ -1,0 +1,437 @@
+
+/* ==========================================
+   ACCROBIC TECH | PREMIUM ABOUT PAGE
+   Brand Identity: #5693eb
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --brand: #5693eb;
+    --brand-dark: #367bd5;
+    --brand-soft: #eef5ff;
+
+    --navy: #101c32;
+    --heading: #172a45;
+    --body: #68778d;
+
+    --white: #ffffff;
+    --surface: #f7f9fc;
+    --border: #e8edf4;
+
+    --shadow: 0 1.5rem 4rem rgba(16, 35, 65, 0.055);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--heading);
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   COMMON SECTION
+========================================== */
+
+.ab_acc {
+    width: min(76rem, 90%);
+    margin: 5rem auto;
+    padding: 5rem;
+    position: relative;
+    background: var(--white);
+    border: 0.0625rem solid var(--border);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+
+    animation: reveal 0.8s ease both;
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+.ab_acc h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.12rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+.ab_acc h1::after {
+    content: "";
+    display: block;
+    width: 3.75rem;
+    height: 0.25rem;
+    margin-top: 1.5rem;
+    background: var(--brand);
+    border-radius: 2rem;
+}
+
+.ab_acc h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--brand-dark);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   PARAGRAPHS
+========================================== */
+
+.ab_acc p {
+    max-width: 64rem;
+    font-size: 1.0625rem;
+    line-height: 2;
+    font-weight: 400;
+    color: var(--body);
+    margin-bottom: 1.25rem;
+}
+
+/* ==========================================
+   ABOUT INTRO SECTION
+========================================== */
+
+.ab_acc:first-of-type {
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(86, 147, 235, 0.13),
+            transparent 35%
+        ),
+        var(--white);
+}
+
+.ab_acc:first-of-type h3 {
+    font-size: 1.625rem;
+    max-width: 40rem;
+    color: var(--brand-dark);
+}
+
+.ab_acc:first-of-type p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   FOUNDER SECTION
+========================================== */
+
+.ab_acc:has(.founder_img) {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    column-gap: 4rem;
+    align-items: center;
+}
+
+.ab_acc:has(.founder_img) h1,
+.ab_acc:has(.founder_img) h3 {
+    grid-column: 1 / -1;
+}
+
+.ab_acc:has(.founder_img) h3 {
+    margin-bottom: 2rem;
+}
+
+/* Founder image */
+
+.founder_img {
+    width: 100%;
+    height: 25rem;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+
+    border-radius: 1rem;
+    background: var(--brand-soft);
+    box-shadow: 0 1rem 2.5rem rgba(36, 75, 130, 0.14);
+}
+
+.founder_img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.25);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.founder_img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.7s ease;
+}
+
+.founder_img:hover img {
+    transform: scale(1.05);
+}
+
+/* Founder biography */
+
+.ab_acc:has(.founder_img) p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+/* ==========================================
+   SERVICES SECTION
+========================================== */
+
+.ab_acc:has(ul) {
+    background: var(--white);
+}
+
+.ab_acc ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    list-style: none;
+    margin-top: 2.5rem;
+    border-top: 0.0625rem solid var(--border);
+}
+
+.ab_acc ul li {
+    min-height: 5.5rem;
+    padding: 1.5rem 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    border-bottom: 0.0625rem solid var(--border);
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading);
+
+    transition: 0.3s ease;
+}
+
+.ab_acc ul li::before {
+    content: "→";
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--brand-dark);
+    background: var(--brand-soft);
+    border-radius: 50%;
+
+    font-size: 1.25rem;
+    transition: 0.3s ease;
+}
+
+.ab_acc ul li:hover {
+    color: var(--brand-dark);
+    padding-left: 1.5rem;
+}
+
+.ab_acc ul li:hover::before {
+    background: var(--brand);
+    color: var(--white);
+    transform: rotate(-45deg);
+}
+
+/* ==========================================
+   VISION SECTION
+========================================== */
+
+.ab_acc:last-of-type {
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(86, 147, 235, 0.2),
+            transparent 38%
+        ),
+        var(--navy);
+
+    border: none;
+    box-shadow: 0 1.5rem 3.5rem rgba(16, 28, 50, 0.18);
+}
+
+.ab_acc:last-of-type h3 {
+    color: #8cbaff;
+}
+
+.ab_acc:last-of-type h3::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 0.1875rem;
+    background: var(--brand);
+    margin-top: 1rem;
+}
+
+.ab_acc:last-of-type p {
+    color: #c5d2e5;
+    font-size: 1.125rem;
+    max-width: 55rem;
+}
+
+.ab_acc:last-of-type strong {
+    display: inline-block;
+    margin-top: 1.5rem;
+
+    color: var(--white);
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.025rem;
+
+    border-left: 0.25rem solid var(--brand);
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 64rem) {
+
+    .ab_acc {
+        padding: 3.5rem;
+        margin: 3.5rem auto;
+    }
+
+    .ab_acc:has(.founder_img) {
+        grid-template-columns: 16rem 1fr;
+        gap: 2.5rem;
+    }
+
+    .founder_img {
+        height: 22rem;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 48rem) {
+
+    .ab_acc {
+        width: 92%;
+        padding: 2.5rem 2rem;
+        margin: 2.5rem auto;
+        border-radius: 1rem;
+    }
+
+    .ab_acc h1 {
+        font-size: 2rem;
+        letter-spacing: -0.06rem;
+    }
+
+    .ab_acc h3 {
+        font-size: 1.2rem;
+    }
+
+    .ab_acc p {
+        font-size: 0.95rem;
+        line-height: 1.85;
+    }
+
+    .ab_acc:has(.founder_img) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .ab_acc:has(.founder_img) h1,
+    .ab_acc:has(.founder_img) h3 {
+        grid-column: 1;
+    }
+
+    .founder_img {
+        width: min(20rem, 100%);
+        height: 22rem;
+        margin: 0 auto;
+    }
+
+    .ab_acc ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 30rem) {
+
+    .ab_acc {
+        width: 94%;
+        padding: 2rem 1.25rem;
+        margin: 1.75rem auto;
+    }
+
+    .ab_acc h1 {
+        font-size: 1.7rem;
+    }
+
+    .ab_acc h3 {
+        font-size: 1.05rem;
+    }
+
+    .ab_acc p {
+        font-size: 0.9rem;
+    }
+
+    .founder_img {
+        height: 19rem;
+    }
+
+    .ab_acc ul li {
+        font-size: 0.9rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .ab_acc:last-of-type strong {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
