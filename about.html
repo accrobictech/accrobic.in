@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('accrobic-theme');
+                var theme = saved === 'light' || saved === 'dark'
+                    ? saved
+                    : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About AccrobicTech | Founder Bharat Bhatt</title>
+    <link rel="icon" type="image/png" href="assets/accrobictech-logo.png">
 
     <!-- SEO Meta Description -->
     <meta name="description"
@@ -33,8 +44,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles.css">
 
     <!-- Organization and Founder Structured Data -->
@@ -68,55 +83,110 @@
     </script>
 </head>
 
-<body>
-    <section class="about-section" id="about">
-        <div class="ab_acc">
-            <h1>About AccrobicTech</h1>
-            <h3>Empowering Businesses Through Digital Innovation</h3>
-            <p>AccrobicTech is a digital business growth agency committed to helping businesses establish and strengthen
-                their online presence. We provide creative and technology-driven solutions, including website design and
-                development, social media marketing, logo design, branding, and digital marketing.</p>
+<body id="top">
+    <div class="scroll-progress" aria-hidden="true"></div>
 
-            <p> Our mission is to help businesses connect with their target audiences, build recognizable brands, and
-                grow
-                in the digital world.</p>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="brand" href="index.html#home" aria-label="AccrobicTech home">
+                <img class="brand-logo" src="assets/accrobictech-logo.png" alt="AccrobicTech official logo">
+            </a>
 
-        </div>
-        <div class="ab_acc">
-            <h1>Meet Our Founder – Bharat Bhatt</h1>
-            <h3>Bharat Bhatt – Founder, AccrobicTech</h3>
-            <div class="founder_img">
-                <img src="founders/Founder.png" alt="Bharat Bhatt">
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="about.html#about" class="active">About us</a>
+                <a href="index.html#work">Why us</a>
+                <a href="index.html#process">Our process</a>
+                <a class="nav-cta" href="index.html#contact">Let’s work together <span>↗</span></a>
             </div>
-            <p>Bharat Bhatt is the Founder of AccrobicTech, a digital business growth agency focused on helping
-                businesses
-                build their digital presence through creative, innovative, and effective solutions.
 
-                With an interest in web development, digital technologies, and business growth, Bharat established
-                AccrobicTech with the vision of making professional digital services accessible to businesses.
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode"
+                    title="Toggle dark/light mode">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+                        </path>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-                Under his leadership, AccrobicTech aims to deliver meaningful digital experiences through website
-                development, social media marketing, logo design, branding, and digital marketing solutions.</p>
+    <main>
+        <section class="about-section" id="about">
+            <div class="ab_acc" data-reveal>
+                <h1>About AccrobicTech</h1>
+                <h3>Empowering Businesses Through Digital Innovation</h3>
+                <p>AccrobicTech is a digital business growth agency committed to helping businesses establish and
+                    strengthen their online presence. We provide creative and technology-driven solutions, including
+                    website design and development, social media marketing, logo design, branding, and digital
+                    marketing.</p>
+
+                <p>Our mission is to help businesses connect with their target audiences, build recognizable brands, and
+                    grow in the digital world.</p>
+            </div>
+
+            <div class="ab_acc" data-reveal>
+                <h1>Meet Our Founder – Bharat Bhatt</h1>
+                <h3>Bharat Bhatt – Founder, AccrobicTech</h3>
+                <div class="founder_img">
+                    <img src="founders/Founder.png" alt="Bharat Bhatt">
+                </div>
+                <p>Bharat Bhatt is the Founder of AccrobicTech, a digital business growth agency focused on helping
+                    businesses build their digital presence through creative, innovative, and effective solutions.
+
+                    With an interest in web development, digital technologies, and business growth, Bharat established
+                    AccrobicTech with the vision of making professional digital services accessible to businesses.
+
+                    Under his leadership, AccrobicTech aims to deliver meaningful digital experiences through website
+                    development, social media marketing, logo design, branding, and digital marketing solutions.</p>
+            </div>
+
+            <div class="ab_acc" data-reveal>
+                <h3>Our Services</h3>
+                <ul>
+                    <li>Website Design and Development</li>
+                    <li>Social Media Marketing</li>
+                    <li>Logo Design and Branding</li>
+                    <li>Digital Marketing</li>
+                </ul>
+            </div>
+
+            <div class="ab_acc" data-reveal="scale-up">
+                <h3>Our Vision</h3>
+                <p>To become a trusted digital growth partner for businesses by delivering creative, reliable, and
+                    result-oriented digital solutions.</p>
+                <strong>AccrobicTech – Building Brands. Growing Businesses.</strong>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-top">
+            <a class="brand footer-brand" href="index.html#home">
+                <img class="brand-logo" src="assets/accrobictech-logo.png" alt="AccrobicTech official logo">
+            </a>
+            <p>Creative thinking for<br>businesses ready to grow.</p>
+            <a class="back-top" href="#top">BACK TO TOP ↑</a>
         </div>
-        <div class="ab_acc">
-            <h3>Our Services</h3>
-            <ul>
-                <li>Website Design and Development</li>
-                <li>Social Media Marketing</li>
-                <li>Logo Design and Branding</li>
-                <li>Digital Marketing</li>
-            </ul>
-            <!-- <a href="https://www.seobility.net/en/seocheck/check?url=https%3A%2F%2Fwww.accrobictech.in%2F"><img
-                    src="https://app.seobility.net/widget/widget.png?url=https%3A%2F%2Fwww.accrobictech.in%2F"
-                    alt="Seobility Score for accrobictech.in"></a> -->
+        <div class="container footer-bottom">
+            <span>© <span id="year"></span> AccrobicTech. All rights reserved.</span>
+            <span>DESIGNED TO MAKE AN IMPACT.</span>
+            <a href="mailto:accrobictech@gmail.com">accrobictech@gmail.com</a>
         </div>
-        <div class="ab_acc">
-            <h3>Our Vision</h3>
-            <p>To become a trusted digital growth partner for businesses by delivering creative, reliable, and
-                result-oriented digital solutions.</p>
-            <strong>AccrobicTech – Building Brands. Growing Businesses.</strong>
-        </div>
-    </section>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

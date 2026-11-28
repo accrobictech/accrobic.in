@@ -1,70 +1,67 @@
-
 /* ==========================================
-   ACCROBIC TECH | PREMIUM ABOUT PAGE
-   Brand Identity: #5693eb
-========================================== */
+   ACCROBIC TECH | ABOUT PAGE STYLES
+   Inherits theme tokens from style.css
+   ========================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
-
-:root {
-    --brand: #5693eb;
-    --brand-dark: #367bd5;
-    --brand-soft: #eef5ff;
-
-    --navy: #101c32;
-    --heading: #172a45;
-    --body: #68778d;
-
-    --white: #ffffff;
-    --surface: #f7f9fc;
-    --border: #e8edf4;
-
-    --shadow: 0 1.5rem 4rem rgba(16, 35, 65, 0.055);
+:root,
+[data-theme="dark"] {
+    --about-card-bg: #131822;
+    --about-card-border: rgba(255, 255, 255, 0.09);
+    --about-heading: #f5f5ef;
+    --about-sub: #7cb2ff;
+    --about-body: #aeb6c4;
+    --about-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    --about-soft-bg: rgba(86, 147, 235, 0.14);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+[data-theme="light"] {
+    --about-card-bg: #ffffff;
+    --about-card-border: #e2eaf6;
+    --about-heading: #101c32;
+    --about-sub: #2c68c4;
+    --about-body: #55647a;
+    --about-shadow: 0 1.5rem 4rem rgba(16, 35, 65, 0.065);
+    --about-soft-bg: #eef5ff;
 }
 
-body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--surface);
-    color: var(--heading);
-    overflow-x: hidden;
+.about-section {
+    padding: 3.5rem 0 5.5rem;
+    position: relative;
 }
 
 /* ==========================================
-   COMMON SECTION
-========================================== */
+   COMMON SECTION CARD
+   ========================================== */
 
 .ab_acc {
-    width: min(76rem, 90%);
-    margin: 5rem auto;
-    padding: 5rem;
+    width: min(72rem, 90%);
+    margin: 2.75rem auto;
+    padding: 4.25rem;
     position: relative;
-    background: var(--white);
-    border: 0.0625rem solid var(--border);
+    background: var(--about-card-bg);
+    border: 1px solid var(--about-card-border);
     border-radius: 1.25rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--about-shadow);
     overflow: hidden;
+    transition: background-color 0.4s ease, border-color 0.35s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-    animation: reveal 0.8s ease both;
+.ab_acc:hover {
+    border-color: rgba(86, 147, 235, 0.35);
 }
 
 /* ==========================================
    HEADINGS
-========================================== */
+   ========================================== */
 
 .ab_acc h1 {
     font-family: 'Manrope', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.12rem;
-    color: var(--navy);
-    margin-bottom: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.09rem;
+    color: var(--about-heading);
+    margin-bottom: 1.25rem;
 }
 
 .ab_acc h1::after {
@@ -72,51 +69,51 @@ body {
     display: block;
     width: 3.75rem;
     height: 0.25rem;
-    margin-top: 1.5rem;
-    background: var(--brand);
+    margin-top: 1.25rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
     border-radius: 2rem;
 }
 
 .ab_acc h3 {
     font-family: 'Manrope', sans-serif;
-    font-size: 1.375rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    color: var(--brand-dark);
+    color: var(--about-sub);
     line-height: 1.5;
     margin-bottom: 1.5rem;
 }
 
 /* ==========================================
    PARAGRAPHS
-========================================== */
+   ========================================== */
 
 .ab_acc p {
     max-width: 64rem;
-    font-size: 1.0625rem;
-    line-height: 2;
+    font-size: 1.03rem;
+    line-height: 1.95;
     font-weight: 400;
-    color: var(--body);
+    color: var(--about-body);
     margin-bottom: 1.25rem;
 }
 
 /* ==========================================
    ABOUT INTRO SECTION
-========================================== */
+   ========================================== */
 
 .ab_acc:first-of-type {
     background:
         radial-gradient(
             circle at 100% 0%,
-            rgba(86, 147, 235, 0.13),
-            transparent 35%
+            rgba(86, 147, 235, 0.16),
+            transparent 40%
         ),
-        var(--white);
+        var(--about-card-bg);
 }
 
 .ab_acc:first-of-type h3 {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
     max-width: 40rem;
-    color: var(--brand-dark);
+    color: var(--about-sub);
 }
 
 .ab_acc:first-of-type p:last-child {
@@ -125,7 +122,7 @@ body {
 
 /* ==========================================
    FOUNDER SECTION
-========================================== */
+   ========================================== */
 
 .ab_acc:has(.founder_img) {
     display: grid;
@@ -143,25 +140,22 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Founder image */
-
 .founder_img {
     width: 100%;
     height: 25rem;
     position: relative;
     margin: 0;
     overflow: hidden;
-
     border-radius: 1rem;
-    background: var(--brand-soft);
-    box-shadow: 0 1rem 2.5rem rgba(36, 75, 130, 0.14);
+    background: var(--about-soft-bg);
+    box-shadow: 0 1rem 2.5rem rgba(36, 75, 130, 0.22);
 }
 
 .founder_img::after {
     content: "";
     position: absolute;
     inset: 0;
-    border: 0.0625rem solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: inherit;
     pointer-events: none;
 }
@@ -172,53 +166,43 @@ body {
     display: block;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.7s ease;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .founder_img:hover img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
-
-/* Founder biography */
 
 .ab_acc:has(.founder_img) p {
     margin: 0;
     font-size: 1rem;
-    line-height: 2;
+    line-height: 1.95;
 }
 
 /* ==========================================
    SERVICES SECTION
-========================================== */
-
-.ab_acc:has(ul) {
-    background: var(--white);
-}
+   ========================================== */
 
 .ab_acc ul {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0;
     list-style: none;
-    margin-top: 2.5rem;
-    border-top: 0.0625rem solid var(--border);
+    margin-top: 2rem;
+    border-top: 1px solid var(--about-card-border);
 }
 
 .ab_acc ul li {
-    min-height: 5.5rem;
-    padding: 1.5rem 1rem;
-
+    min-height: 5.25rem;
+    padding: 1.35rem 1rem;
     display: flex;
     align-items: center;
     gap: 1.25rem;
-
-    border-bottom: 0.0625rem solid var(--border);
-
+    border-bottom: 1px solid var(--about-card-border);
     font-size: 1rem;
     font-weight: 600;
-    color: var(--heading);
-
-    transition: 0.3s ease;
+    color: var(--about-heading);
+    transition: color 0.3s ease, padding-left 0.3s ease, background-color 0.3s ease;
 }
 
 .ab_acc ul li::before {
@@ -226,44 +210,42 @@ body {
     width: 2.5rem;
     height: 2.5rem;
     min-width: 2.5rem;
-
     display: grid;
     place-items: center;
-
-    color: var(--brand-dark);
-    background: var(--brand-soft);
+    color: var(--about-sub);
+    background: var(--about-soft-bg);
     border-radius: 50%;
-
-    font-size: 1.25rem;
-    transition: 0.3s ease;
+    font-size: 1.2rem;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .ab_acc ul li:hover {
-    color: var(--brand-dark);
+    color: var(--accent-bright);
     padding-left: 1.5rem;
 }
 
 .ab_acc ul li:hover::before {
-    background: var(--brand);
-    color: var(--white);
+    background: var(--accent);
+    color: #ffffff;
     transform: rotate(-45deg);
 }
 
 /* ==========================================
    VISION SECTION
-========================================== */
+   ========================================== */
 
 .ab_acc:last-of-type {
     background:
         radial-gradient(
             circle at 100% 0%,
-            rgba(86, 147, 235, 0.2),
-            transparent 38%
+            rgba(86, 147, 235, 0.24),
+            transparent 40%
         ),
-        var(--navy);
-
-    border: none;
-    box-shadow: 0 1.5rem 3.5rem rgba(16, 28, 50, 0.18);
+        linear-gradient(145deg, #101c32 0%, #162744 100%);
+    border: 1px solid rgba(86, 147, 235, 0.25);
+    box-shadow: 0 1.5rem 3.5rem rgba(16, 28, 50, 0.22);
 }
 
 .ab_acc:last-of-type h3 {
@@ -275,7 +257,7 @@ body {
     display: block;
     width: 3rem;
     height: 0.1875rem;
-    background: var(--brand);
+    background: #5693eb;
     margin-top: 1rem;
 }
 
@@ -288,43 +270,25 @@ body {
 .ab_acc:last-of-type strong {
     display: inline-block;
     margin-top: 1.5rem;
-
-    color: var(--white);
+    color: #ffffff;
     font-family: 'Manrope', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.025rem;
-
-    border-left: 0.25rem solid var(--brand);
+    border-left: 0.25rem solid #5693eb;
     padding: 0.75rem 1.25rem;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 0 8px 8px 0;
 }
 
 /* ==========================================
-   ANIMATION
-========================================== */
-
-@keyframes reveal {
-    from {
-        opacity: 0;
-        transform: translateY(1.5rem);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ==========================================
-   TABLET
-========================================== */
+   RESPONSIVE
+   ========================================== */
 
 @media (max-width: 64rem) {
-
     .ab_acc {
-        padding: 3.5rem;
-        margin: 3.5rem auto;
+        padding: 3.25rem;
+        margin: 2.5rem auto;
     }
 
     .ab_acc:has(.founder_img) {
@@ -337,22 +301,21 @@ body {
     }
 }
 
-/* ==========================================
-   MOBILE
-========================================== */
-
 @media (max-width: 48rem) {
+    .about-section {
+        padding: 2rem 0 3.5rem;
+    }
 
     .ab_acc {
         width: 92%;
         padding: 2.5rem 2rem;
-        margin: 2.5rem auto;
+        margin: 1.75rem auto;
         border-radius: 1rem;
     }
 
     .ab_acc h1 {
         font-size: 2rem;
-        letter-spacing: -0.06rem;
+        letter-spacing: -0.05rem;
     }
 
     .ab_acc h3 {
@@ -385,16 +348,11 @@ body {
     }
 }
 
-/* ==========================================
-   SMALL MOBILE
-========================================== */
-
 @media (max-width: 30rem) {
-
     .ab_acc {
         width: 94%;
         padding: 2rem 1.25rem;
-        margin: 1.75rem auto;
+        margin: 1.25rem auto;
     }
 
     .ab_acc h1 {
@@ -420,18 +378,5 @@ body {
 
     .ab_acc:last-of-type strong {
         font-size: 0.95rem;
-    }
-}
-
-/* ==========================================
-   ACCESSIBILITY
-========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
     }
 }

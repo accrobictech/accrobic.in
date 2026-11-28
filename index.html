@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('accrobic-theme');
+        var theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -17,39 +28,55 @@
   <meta name="description" content="AccrobicTech is a digital growth agency offering
 professional website design, social media marketing,
 logo design and branding services.">
-  <title>AccrobicTech Solutions | Website Design & Digital Marketing Agency</title>
+  <title>AccrobicTech Solutions | Website Design &amp; Digital Marketing Agency</title>
   <link rel="icon" type="image/png" href="assets/accrobictech-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-    integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-
-
   <meta name="robots" content="index, follow">
-
   <link rel="canonical" href="https://www.accrobictech.in/">
 </head>
 
 <body>
-  <!-- <div class="announcement">Your next stage of growth starts here. <a href="#contact">Let’s talk <span>↗</span></a>
-  </div> -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="AccrobicTech home"><img class="brand-logo"
-          src="assets/accrobictech-logo.png" alt="AccrobicTech official logo"></a>
-      <button class="menu-toggle" aria-label="Toggle navigation"
-        aria-expanded="false"><span></span><span></span></button>
+      <a class="brand" href="#home" aria-label="AccrobicTech home">
+        <img class="brand-logo" src="assets/accrobictech-logo.png" alt="AccrobicTech official logo">
+      </a>
+
       <div class="nav-links">
-        <a href="#services">Services</a><a href="about.html#about">About us</a><a href="#work">Why us</a><a
-          href="#process">Our
-          process</a>
+        <a href="#services">Services</a>
+        <a href="about.html#about">About us</a>
+        <a href="#work">Why us</a>
+        <a href="#process">Our process</a>
         <a class="nav-cta" href="#contact">Let’s work together <span>↗</span></a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode"
+          title="Toggle dark/light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span>
+        </button>
       </div>
     </nav>
   </header>
@@ -60,28 +87,41 @@ logo design and branding services.">
       <div class="container hero-content">
         <div class="hero-copy">
           <div class="eyebrow"><span class="pulse"></span> CREATIVE DIGITAL GROWTH AGENCY</div>
-          <h1>Make your brand<br> impossible to <em>ignore.</em></h1>
+          <h1>
+            Make your brand<br>
+            <em id="hero-typed" class="typed-word">impossible to ignore.</em><span class="typing-cursor"
+              aria-hidden="true"></span>
+          </h1>
           <p class="hero-text">We turn big ideas into bold digital experiences. From standout websites to
             scroll-stopping social media, we help your business get noticed and grow.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#contact">Start a project <span>↗</span></a><a
-              class="text-link" href="#services">Explore our services <span>↓</span></a></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Start a project <span>↗</span></a>
+            <a class="text-link" href="#services">Explore our services <span>↓</span></a>
+          </div>
           <div class="hero-proof">
             <div class="proof-avatars"><span>A</span><span>B</span><span>C</span></div>
             <p><strong>Built for ambitious brands</strong><br>Creative thinking. Meaningful growth.</p>
           </div>
         </div>
+
         <div class="hero-art" aria-label="Abstract creative digital design illustration">
           <div class="orbit orbit-one"></div>
           <div class="orbit orbit-two"></div>
-          <div class="art-card card-back"><span class="tiny-label">YOUR BRAND</span>
-            <div class="mini-bars"><i></i><i></i><i></i><i></i></div><b>GROWTH<br>MODE<span>↗</span></b>
+          <div class="art-card card-back">
+            <span class="tiny-label">YOUR BRAND</span>
+            <div class="mini-bars"><i></i><i></i><i></i><i></i></div>
+            <b>GROWTH<br>MODE<span>↗</span></b>
           </div>
           <div class="art-card card-front">
             <div class="art-top"><span>CREATIVE / DIGITAL</span><span>01—04</span></div>
             <div class="abstract-symbol">
               <div class="symbol-ring"></div>
-              <div class="symbol-core">A</div>
-              <div class="symbol-dot"></div>
+              <div class="symbol-orbit-track">
+                <div class="symbol-dot"></div>
+              </div>
+              <div class="symbol-core">
+                <img class="hero-logo-mark" src="assets/logo-mark.png" alt="AccrobicTech animated logo mark">
+              </div>
             </div>
             <div class="art-bottom"><b>Ideas that move<br>business forward.</b><span>ACCROBICTECH®</span></div>
           </div>
@@ -91,14 +131,17 @@ logo design and branding services.">
           <div class="spark spark-two">✦</div>
         </div>
       </div>
-      <div class="hero-bottom container"><span>DESIGN WITH PURPOSE</span><span>STRATEGY THAT WORKS</span><span>GROWTH
-          THAT LASTS</span><span>✳</span></div>
+      <div class="hero-bottom container">
+        <span>DESIGN WITH PURPOSE</span>
+        <span>STRATEGY THAT WORKS</span>
+        <span>GROWTH THAT LASTS</span>
+        <span>✳</span>
+      </div>
     </section>
-
 
     <section class="services section-pad" id="services">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading" data-reveal>
           <div>
             <div class="eyebrow"><span class="pulse"></span> WHAT WE DO</div>
             <h2>Everything your brand<br>needs to <em>move forward.</em></h2>
@@ -106,46 +149,46 @@ logo design and branding services.">
           <p>One creative partner. The right digital tools. A clearer path to growth.</p>
         </div>
         <div class="service-grid">
-          <article class="service-card service-dark">
+          <article class="service-card service-dark" data-reveal style="--reveal-delay: 0ms;">
             <div class="service-number">01 / DIGITAL PRESENCE</div>
             <div class="service-icon browser-icon"><span></span><span></span><span></span><b>↗</b></div>
-            <h3>Website Design<br>& Development</h3>
-            <p>Beautiful, responsive websites that communicate your value and turn visitors into customers.</p><a
-              href="#contact" aria-label="Enquire about website design">Explore service <span>↗</span></a>
+            <h3>Website Design<br>&amp; Development</h3>
+            <p>Beautiful, responsive websites that communicate your value and turn visitors into customers.</p>
+            <a href="#contact" aria-label="Enquire about website design">Explore service <span>↗</span></a>
           </article>
-          <article class="service-card service-lime">
+          <article class="service-card service-lime" data-reveal style="--reveal-delay: 90ms;">
             <div class="service-number">02 / SOCIAL GROWTH</div>
             <div class="service-icon social-icon"><b>♡</b><i>＋</i><span>↗</span></div>
             <h3>Social Media<br>Marketing</h3>
-            <p>Build a community, increase engagement and keep your brand part of the conversation.</p><a
-              href="#contact" aria-label="Enquire about social media marketing">Explore service <span>↗</span></a>
+            <p>Build a community, increase engagement and keep your brand part of the conversation.</p>
+            <a href="#contact" aria-label="Enquire about social media marketing">Explore service <span>↗</span></a>
           </article>
-          <article class="service-card service-cream">
+          <article class="service-card service-cream" data-reveal style="--reveal-delay: 180ms;">
             <div class="service-number">03 / BRAND IDENTITY</div>
             <div class="service-icon logo-icon"><span>A</span><i>✳</i></div>
             <h3>Logo Design</h3>
-            <p>Distinctive visual marks that capture your personality and make a lasting first impression.</p><a
-              href="#contact" aria-label="Enquire about logo design">Explore service <span>↗</span></a>
+            <p>Distinctive visual marks that capture your personality and make a lasting first impression.</p>
+            <a href="#contact" aria-label="Enquire about logo design">Explore service <span>↗</span></a>
           </article>
-          <article class="service-card service-purple">
+          <article class="service-card service-purple" data-reveal style="--reveal-delay: 270ms;">
             <div class="service-number">04 / BRAND STRATEGY</div>
             <div class="service-icon brand-icon"><span>BRAND</span><b>∞</b></div>
             <h3>Branding</h3>
-            <p>Create a consistent brand identity with a clear voice, visual language and purpose.</p><a href="#contact"
-              aria-label="Enquire about branding">Explore service <span>↗</span></a>
+            <p>Create a consistent brand identity with a clear voice, visual language and purpose.</p>
+            <a href="#contact" aria-label="Enquire about branding">Explore service <span>↗</span></a>
           </article>
         </div>
       </div>
     </section>
 
     <section class="statement section-pad" id="work">
-      <div class="container statement-inner">
+      <div class="container statement-inner" data-reveal="scale-up">
         <div class="eyebrow"><span class="pulse"></span> WHY ACCROBICTECH</div>
         <h2>We don’t just make<br>things look good.<br>We make them <em>work.</em></h2>
         <div class="statement-foot">
           <p>Thoughtful creativity meets practical business thinking. Every detail has a purpose: to help your brand
-            connect, compete and grow.</p><a class="btn btn-outline" href="#contact">Let’s build your brand
-            <span>↗</span></a>
+            connect, compete and grow.</p>
+          <a class="btn btn-outline" href="#contact">Let’s build your brand <span>↗</span></a>
         </div>
         <div class="statement-stamp">IDEAS<br>INTO<br>IMPACT <span>✳</span></div>
       </div>
@@ -153,7 +196,7 @@ logo design and branding services.">
 
     <section class="process section-pad" id="process">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading" data-reveal>
           <div>
             <div class="eyebrow dark-eyebrow">HOW WE MAKE IT HAPPEN</div>
             <h2>A simple process.<br><em>Powerful outcomes.</em></h2>
@@ -161,19 +204,23 @@ logo design and branding services.">
           <p>Clear communication and collaboration at every step. No confusion, just forward momentum.</p>
         </div>
         <div class="process-grid">
-          <div class="process-step"><span>01</span>
+          <div class="process-step" data-reveal style="--reveal-delay: 0ms;">
+            <span>01</span>
             <h3>Discover</h3>
             <p>We learn about your business, audience, goals and what makes you different.</p>
           </div>
-          <div class="process-step"><span>02</span>
+          <div class="process-step" data-reveal style="--reveal-delay: 90ms;">
+            <span>02</span>
             <h3>Plan</h3>
             <p>We shape a focused strategy and creative direction that fits your objectives.</p>
           </div>
-          <div class="process-step"><span>03</span>
+          <div class="process-step" data-reveal style="--reveal-delay: 180ms;">
+            <span>03</span>
             <h3>Create</h3>
             <p>We design, build and refine every element with care and attention to detail.</p>
           </div>
-          <div class="process-step"><span>04</span>
+          <div class="process-step" data-reveal style="--reveal-delay: 270ms;">
+            <span>04</span>
             <h3>Grow</h3>
             <p>We launch with purpose and help you take the next step in your digital journey.</p>
           </div>
@@ -182,38 +229,41 @@ logo design and branding services.">
     </section>
 
     <section class="cta-section" id="contact">
-      <div class="container cta-box">
+      <div class="container cta-box" data-reveal="scale-up">
         <div class="cta-orb">✳</div>
         <div class="eyebrow"><span class="pulse"></span> HAVE A PROJECT IN MIND?</div>
         <h2>Let’s make your<br>next move <em>your best.</em></h2>
         <p>Tell us what you’re building. We’ll bring the creative thinking and digital know-how to help you take it
-          further.</p><a class="btn btn-primary"
-          href="mailto:accrobictech@gmail.com?subject=Let's%20work%20together">Start a conversation <span>↗</span></a>
+          further.</p>
+        <a class="btn btn-primary" href="mailto:accrobictech@gmail.com?subject=Let's%20work%20together">Start a
+          conversation <span>↗</span></a>
         <div class="social_med">
-          <div class="fivon"><a href="https://instagram.com/accrobictech.in"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-          <div class="fivon"><a href="https://pinterest.com/accrobictech"><i class="fa-brands fa-pinterest"></i></a>
-          </div>
-          <div class="fivon"><a href="https://www.linkedin.com/in/accrobictech-solutions-b8b7983b8/"><i
-                class="fa-brands fa-linkedin"></i></a></div>
-          <div class="fivon"><a href="https://www.facebook.com/profile.php?id=61596257777626"><i
-                class="fa-brands fa-facebook"></i></a></div>
-          <div class="fivon"><a href="https://share.google/N40uCwZXlR7shcRYh"><i
+          <div class="fivon"><a href="https://instagram.com/accrobictech.in" aria-label="Instagram"><i
+                class="fa-brands fa-instagram"></i></a></div>
+          <div class="fivon"><a href="https://pinterest.com/accrobictech" aria-label="Pinterest"><i
+                class="fa-brands fa-pinterest"></i></a></div>
+          <div class="fivon"><a href="https://www.linkedin.com/in/accrobictech-solutions-b8b7983b8/"
+              aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></div>
+          <div class="fivon"><a href="https://www.facebook.com/profile.php?id=61596257777626"
+              aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></div>
+          <div class="fivon"><a href="https://share.google/N40uCwZXlR7shcRYh" aria-label="Location"><i
                 class="fa-solid fa-location-dot"></i></a></div>
         </div>
       </div>
-      </div>
-
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-top"><a class="brand footer-brand" href="#home"><img class="brand-logo"
-          src="assets/accrobictech-logo.png" alt="AccrobicTech official logo"></a>
-      <p>Creative thinking for<br>businesses ready to grow.</p><a class="back-top" href="#home">BACK TO TOP ↑</a>
+    <div class="container footer-top">
+      <a class="brand footer-brand" href="#home">
+        <img class="brand-logo" src="assets/accrobictech-logo.png" alt="AccrobicTech official logo">
+      </a>
+      <p>Creative thinking for<br>businesses ready to grow.</p>
+      <a class="back-top" href="#home">BACK TO TOP ↑</a>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> AccrobicTech. All rights
-        reserved.</span><span>DESIGNED TO MAKE AN IMPACT.</span>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> AccrobicTech. All rights reserved.</span>
+      <span>DESIGNED TO MAKE AN IMPACT.</span>
       <a href="mailto:accrobictech@gmail.com">accrobictech@gmail.com</a>
     </div>
   </footer>
