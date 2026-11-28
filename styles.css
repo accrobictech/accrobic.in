@@ -43,7 +43,7 @@
     border-radius: 1.25rem;
     box-shadow: var(--about-shadow);
     overflow: hidden;
-    transition: background-color 0.4s ease, border-color 0.35s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ab_acc:hover {
@@ -166,7 +166,7 @@
     display: block;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .founder_img:hover img {
@@ -216,7 +216,7 @@
     background: var(--about-soft-bg);
     border-radius: 50%;
     font-size: 1.2rem;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
         background-color 0.3s ease,
         color 0.3s ease;
 }
